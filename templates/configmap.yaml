@@ -27,6 +27,7 @@
               "repo" (default "" $app.repo)
               "namespace" $.Values.qeCIPipelines.defaults.namespace
             }}
+---
 apiVersion: v1
 kind: Configmap
 metadata:
