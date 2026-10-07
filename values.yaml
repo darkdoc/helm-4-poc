@@ -1,0 +1,66 @@
+qeCIPipelines:
+  defaults:
+    namespace: vp-qe-ci
+    platforms:
+      aws:
+        region: us-east-2
+      gcp:
+        region: us-central1
+      azure:
+        region: westus3
+    ocp_versions:
+      - "4.20"
+      - "4.21"
+      - "4.22"
+    flavors: 
+      single:
+        clusterGroup: hub
+      multi:
+        clusterGroup: hub
+      hosted:
+        clusterGroup: hub
+        platforms:
+          - aws
+  patterns:
+    mcg:
+      repo: https://github.com/validatedpatterns/multicloud-gitops.git
+      flavors:
+        single:
+          clusterGroup: standalone
+        multi:
+        hosted:
+          clusterGroup: standalone
+    ansible-edge:
+      repo: https://github.com/validatedpatterns/ansible-edge-gitops.git
+      platforms:
+        aws:
+      flavors:
+        single:
+
+    ramen:
+      repo: https://github.com/validatedpatterns/ramendr-starter-kit.git
+      revision: main
+      ocp_versions:
+        - "4.20"
+        - "4.22"
+      platforms:
+        aws:
+          region: us-east-1
+      flavors:
+        multi-dr:
+          clusterGroup: odf
+
+    layered-zero:
+      repo: https://github.com/darkdoc/layered-zero-trust.git
+      revision: pipeline_test
+      flavors:
+        single:
+
+    ragllm:
+      repo: https://github.com/validatedpatterns/rag-llm-gitops.git
+      platforms:
+        aws:
+        azure:
+      flavors:
+        single:
+          clusterGroup: ci
